@@ -1,27 +1,59 @@
-import { Wifi, Zap, Snowflake, GraduationCap, Briefcase, Home, CheckCircle2 } from "lucide-react";
+import {
+  Wifi,
+  Zap,
+  Snowflake,
+  GraduationCap,
+  Briefcase,
+  Coffee,
+  CheckCircle2,
+} from "lucide-react";
 import { Section } from "./Section";
 import { Card } from "./Card";
 
 const items = [
-  { icon: Wifi, title: "Free High-Speed Wi-Fi", note: "Reliable internet for studying, meetings and uninterrupted work." },
-  { icon: Zap, title: "Charging Points", note: "Convenient charging access so your devices stay powered." },
-  { icon: Snowflake, title: "Comfortable AC Seating", note: "Cool, peaceful interiors designed for long, comfortable sessions." },
-  { icon: GraduationCap, title: "Perfect for Students", note: "Affordable menu, quiet atmosphere and plenty of time to focus." },
-  { icon: Briefcase, title: "Perfect for Freelancers", note: "A productive space for client calls, creative work and planning." },
-  { icon: Home, title: "Perfect for Remote Work", note: "Your ideal third place between home and the office." },
+  {
+    icon: Wifi,
+    title: "Free High-Speed Wi-Fi",
+    note: "Reliable internet for studying, meetings and uninterrupted work.",
+  },
+  {
+    icon: Zap,
+    title: "Charging Points",
+    note: "Convenient charging access to keep your devices powered.",
+  },
+  {
+    icon: Snowflake,
+    title: "Air-Conditioned Seating",
+    note: "Comfortable indoor seating that lets you relax for hours.",
+  },
+  {
+    icon: GraduationCap,
+    title: "Student Friendly",
+    note: "Affordable menu, peaceful ambience and a welcoming atmosphere for study sessions.",
+  },
+  {
+    icon: Briefcase,
+    title: "Laptop Friendly",
+    note: "An ideal place for freelancers, remote work and creative projects.",
+  },
+  {
+    icon: Coffee,
+    title: "Relax & Unwind",
+    note: "Whether you're meeting friends or enjoying some quiet time, Coffee Griham is the perfect place to slow down.",
+  },
 ];
 
 export function WorkSipConnect() {
   return (
     <Section
       id="work"
-      eyebrow="Work • Sip • Connect"
-      title="Designed for work, study & great coffee."
-      description="Whether you're attending online classes, working remotely, meeting clients or simply looking for a peaceful place to relax, Coffee Griham offers everything you need to stay comfortable and productive."
+      eyebrow="Work • Relax • Connect"
+      title="A place where great coffee meets quiet moments."
+      description="Whether you're catching up with friends, finishing an assignment, working on your laptop or simply enjoying a slow evening, Coffee Griham offers a warm, welcoming space where you can stay comfortable and enjoy every cup."
     >
       <div className="mb-8 inline-flex items-center gap-2 rounded-full border border-green-600/20 bg-green-600/10 px-4 py-1.5 text-xs font-medium uppercase tracking-wider text-green-700">
         <CheckCircle2 className="h-4 w-4" />
-        Available Every Day
+        Open Daily
       </div>
 
       <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
