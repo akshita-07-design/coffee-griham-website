@@ -1,7 +1,9 @@
 import { createFileRoute } from "@tanstack/react-router";
+
 import { Navbar } from "@/components/site/Navbar";
 import { Footer } from "@/components/site/Footer";
 import { ScrollProgress } from "@/components/site/ScrollProgress";
+
 import { Hero } from "@/components/site/Hero";
 import { About } from "@/components/site/About";
 import { WhyLove } from "@/components/site/WhyLove";
@@ -15,17 +17,25 @@ import { InstagramGallery } from "@/components/site/InstagramGallery";
 import { Visit } from "@/components/site/Visit";
 import { FAQ } from "@/components/site/FAQ";
 
+
 export const Route = createFileRoute("/")({
   component: Index,
+
   head: () => ({
     meta: [
-      { title: "Coffee Griham — A peaceful corner in the heart of Bhilai" },
+      {
+        title: "Coffee Griham — A peaceful corner in the heart of Bhilai",
+      },
       {
         name: "description",
         content:
           "Handcrafted coffee, fresh sandwiches, warm lights and a cozy place to work, read or slow down. Vidya Vihar Colony, Bhilai. 4.6★ on Google.",
       },
-      { property: "og:title", content: "Coffee Griham — A peaceful corner in the heart of Bhilai" },
+      {
+        property: "og:title",
+        content:
+          "Coffee Griham — A peaceful corner in the heart of Bhilai",
+      },
       {
         property: "og:description",
         content:
@@ -40,25 +50,40 @@ export const Route = createFileRoute("/")({
   }),
 });
 
+
 function Index() {
   return (
     <div className="min-h-screen bg-background text-foreground">
       <ScrollProgress />
+
       <Navbar />
+
       <main>
         <Hero />
+
         <About />
+
         <WhyLove />
+
         <SignatureDrinks />
+
         <FreshBites />
+
         <WorkSipConnect />
+
         <PerfectCorner />
+
         <Gallery />
+
         <Testimonials />
+
         <InstagramGallery />
+
         <Visit />
+
         <FAQ />
       </main>
+
       <Footer />
     </div>
   );

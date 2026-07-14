@@ -3,12 +3,48 @@ import { Star } from "lucide-react";
 import { Section } from "./Section";
 
 const reviews = [
-  { name: "Aarav Sharma", initial: "A", color: "#EA4335", text: "Cozy little café with genuinely great coffee. The owner is friendly and the vibe is peaceful — perfect for reading or a long chat.", date: "2 weeks ago" },
-  { name: "Ishita Patel", initial: "I", color: "#4285F4", text: "Affordable, comfortable and the sandwiches are so fresh. My go-to for a quiet couple of hours away from home.", date: "1 month ago" },
-  { name: "Rohan Kapoor", initial: "R", color: "#FBBC04", text: "The Beans Lush cold coffee is unreal. Ambience is calm, not loud like the bigger cafés. Highly recommend.", date: "3 weeks ago" },
-  { name: "Meera Deshmukh", initial: "M", color: "#34A853", text: "Feels like a neighbourhood spot in the best way. Warm lights, kind service, and a really good latte.", date: "2 months ago" },
-  { name: "Karan Verma", initial: "K", color: "#9333EA", text: "Perfect study café. Peaceful, quality coffee, and prices that let you stay longer than one cup.", date: "1 week ago" },
-  { name: "Sneha Agrawal", initial: "S", color: "#EA4335", text: "The paneer tandoori sandwich and a hot mocha — best evening plan in Vidya Vihar. So underrated.", date: "5 days ago" },
+  {
+    name: "Aarav Sharma",
+    initial: "A",
+    color: "#EA4335",
+    text: "Cozy little café with genuinely great coffee. The owner is friendly and the vibe is peaceful — perfect for reading or a long chat.",
+    date: "2 weeks ago",
+  },
+  {
+    name: "Ishita Patel",
+    initial: "I",
+    color: "#4285F4",
+    text: "Affordable, comfortable and the sandwiches are so fresh. My go-to for a quiet couple of hours away from home.",
+    date: "1 month ago",
+  },
+  {
+    name: "Rohan Kapoor",
+    initial: "R",
+    color: "#FBBC04",
+    text: "The Beans Lush cold coffee is unreal. Ambience is calm, not loud like the bigger cafés. Highly recommend.",
+    date: "3 weeks ago",
+  },
+  {
+    name: "Meera Deshmukh",
+    initial: "M",
+    color: "#34A853",
+    text: "Feels like a neighbourhood spot in the best way. Warm lights, kind service, and a really good latte.",
+    date: "2 months ago",
+  },
+  {
+    name: "Karan Verma",
+    initial: "K",
+    color: "#9333EA",
+    text: "Perfect study café. Peaceful, quality coffee, and prices that let you stay longer than one cup.",
+    date: "1 week ago",
+  },
+  {
+    name: "Sneha Agrawal",
+    initial: "S",
+    color: "#EA4335",
+    text: "The paneer tandoori sandwich and a hot mocha — best evening plan in Vidya Vihar. So underrated.",
+    date: "5 days ago",
+  },
 ];
 
 function GoogleG({ className = "h-4 w-4" }: { className?: string }) {
@@ -24,6 +60,7 @@ function GoogleG({ className = "h-4 w-4" }: { className?: string }) {
 
 export function Testimonials() {
   const track = [...reviews, ...reviews];
+
   return (
     <Section
       id="reviews"
@@ -33,42 +70,116 @@ export function Testimonials() {
     >
       <div className="group relative overflow-hidden [mask-image:linear-gradient(90deg,transparent,black_8%,black_92%,transparent)]">
         <motion.div
-          className="flex gap-5"
+          className="flex gap-6"
           animate={{ x: ["0%", "-50%"] }}
-          transition={{ duration: 55, ease: "linear", repeat: Infinity }}
+          transition={{
+            duration: 50,
+            ease: "linear",
+            repeat: Infinity,
+          }}
+          whileHover={{
+            animationPlayState: "paused",
+          }}
         >
           {track.map((r, i) => (
-            <article
+            <motion.article
               key={i}
-              className="flex w-[340px] shrink-0 flex-col rounded-2xl border border-line bg-paper p-6 soft-shadow transition-all duration-300 hover:lift-shadow sm:w-[400px]"
+              whileHover={{
+                y: -10,
+                rotate: -1,
+                scale: 1.02,
+              }}
+              transition={{
+                type: "spring",
+                stiffness: 260,
+                damping: 18,
+              }}
+              className="group/card flex w-[340px] shrink-0 flex-col rounded-3xl border border-line bg-paper p-6 soft-shadow hover:border-amber-300/40 hover:shadow-2xl sm:w-[400px]"
             >
               <div className="flex items-center gap-3">
-                <div
-                  className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full font-display text-lg text-white"
-                  style={{ backgroundColor: r.color }}
-                  aria-hidden
+                <motion.div
+                  whileHover={{
+                    rotate: 360,
+                    scale: 1.08,
+                  }}
+                  transition={{
+                    duration: 0.6,
+                  }}
+                  className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full font-display text-lg text-white shadow-md"
+                  style={{
+                    backgroundColor: r.color,
+                  }}
                 >
                   {r.initial}
-                </div>
+                </motion.div>
+
                 <div className="min-w-0 flex-1">
-                  <div className="flex items-center gap-1.5">
-                    <span className="truncate text-sm font-medium text-ink">{r.name}</span>
-                    <GoogleG className="h-3.5 w-3.5" />
+                  <div className="flex items-center gap-2">
+                    <span className="truncate text-sm font-semibold text-ink">
+                      {r.name}
+                    </span>
+
+                    <motion.div
+                      whileHover={{
+                        rotate: 360,
+                      }}
+                      transition={{
+                        duration: 0.8,
+                      }}
+                    >
+                      <GoogleG className="h-4 w-4" />
+                    </motion.div>
                   </div>
-                  <div className="mt-0.5 flex items-center gap-1.5">
+
+                  <div className="mt-1 flex items-center gap-2">
                     <div className="flex gap-0.5">
                       {Array.from({ length: 5 }).map((_, k) => (
-                        <Star key={k} className="h-3 w-3 fill-ember text-ember" />
+                        <motion.div
+                          key={k}
+                          animate={{
+                            opacity: [0.8, 1, 0.8],
+                          }}
+                          transition={{
+                            duration: 2,
+                            delay: k * 0.15,
+                            repeat: Infinity,
+                          }}
+                        >
+                          <Star className="h-3.5 w-3.5 fill-amber-500 text-amber-500" />
+                        </motion.div>
                       ))}
                     </div>
-                    <span className="text-[11px] text-mute">· {r.date}</span>
+
+                    <span className="text-[11px] text-mute">
+                      • {r.date}
+                    </span>
                   </div>
                 </div>
               </div>
+
               <p className="mt-5 text-[15px] leading-relaxed text-ink/80">
                 {r.text}
               </p>
-            </article>
+
+              <motion.div
+                initial={{ opacity: 0 }}
+                whileHover={{ opacity: 1 }}
+                transition={{ duration: 0.3 }}
+                className="mt-6 overflow-hidden rounded-full bg-gradient-to-r from-amber-50 via-white to-amber-50"
+              >
+                <motion.div
+                  initial={{ x: "-100%" }}
+                  whileHover={{ x: "100%" }}
+                  transition={{
+                    duration: 1,
+                    repeat: Infinity,
+                    repeatDelay: 0.4,
+                    ease: "linear",
+                  }}
+                  className="h-[2px] w-1/2 bg-gradient-to-r from-transparent via-amber-400 to-transparent"
+                />
+              </motion.div>
+            </motion.article>
           ))}
         </motion.div>
       </div>

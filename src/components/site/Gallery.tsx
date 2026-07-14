@@ -69,26 +69,69 @@ export function Gallery() {
               layout
               type="button"
               onClick={() => setActive(i)}
-              initial={{ opacity: 0, scale: 0.94 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 0.94 }}
-              transition={{ duration: 0.45, delay: (i % 6) * 0.04 }}
+              initial={{
+                opacity: 0,
+                y: 40,
+                scale: 0.92,
+                rotateX: 8,
+              }}
+              whileInView={{
+                opacity: 1,
+                y: 0,
+                scale: 1,
+                rotateX: 0,
+              }}
+              viewport={{ once: true }}
+              whileHover={{
+                y: -10,
+                scale: 1.03,
+              }}
+              exit={{
+                opacity: 0,
+                scale: 0.95,
+              }}
+              transition={{
+                duration: 0.7,
+                delay: (i % 6) * 0.08,
+                ease: [0.16, 1, 0.3, 1],
+              }}
               className={cn(
-                "group relative overflow-hidden rounded-2xl bg-cream soft-shadow focus:outline-none focus-visible:ring-2 focus-visible:ring-ember focus-visible:ring-offset-2 focus-visible:ring-offset-background",
+                "group relative overflow-hidden rounded-2xl bg-cream soft-shadow transition-all duration-700 hover:shadow-2xl hover:shadow-amber-300/20 focus:outline-none focus-visible:ring-2 focus-visible:ring-ember focus-visible:ring-offset-2 focus-visible:ring-offset-background",
                 filter === "All" ? item.span : undefined,
               )}
               aria-label={`Open image: ${item.alt}`}
             >
-              <img
+            <motion.img
                 src={item.src}
                 alt={item.alt}
                 loading="lazy"
-                className="h-full w-full object-cover transition-transform duration-[900ms] group-hover:scale-110"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-ink/50 via-transparent to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
-              <span className="absolute bottom-3 left-3 rounded-full bg-white/85 px-2.5 py-1 text-[9px] font-medium uppercase tracking-[0.15em] text-brown opacity-0 backdrop-blur transition-opacity duration-500 group-hover:opacity-100">
+                whileHover={{
+                  scale: 1.12,
+              }}
+              transition={{
+                duration: 1.1,
+                ease: [0.16, 1, 0.3, 1],
+              }}
+              className="h-full w-full object-cover brightness-[0.96] transition-all duration-1000 group-hover:brightness-105"
+            />
+              {/* Premium dark overlay */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/65 via-black/10 to-transparent opacity-0 transition-all duration-700 group-hover:opacity-100" />
+
+              {/* Moving light reflection */}
+              <div className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/30 to-transparent transition-transform duration-[1300ms] group-hover:translate-x-full" />
+
+              {/* Category badge */}
+              <motion.span
+                whileHover={{
+                  scale: 1.08,
+                }}
+                transition={{
+                  duration: 0.25,
+                }}
+                className="absolute bottom-3 left-3 rounded-full bg-white/90 px-3 py-1 text-[9px] font-medium uppercase tracking-[0.18em] text-brown shadow-md backdrop-blur"
+              >
                 {item.cat}
-              </span>
+              </motion.span>
             </motion.button>
           ))}
         </AnimatePresence>
