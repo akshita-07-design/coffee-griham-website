@@ -13,18 +13,15 @@ export function Hero() {
         initial={{ scale: 1.12 }}
         animate={{ scale: 1 }}
         transition={{ duration: 2.4, ease: [0.16, 1, 0.3, 1] }}
-        src={photos.exteriorNight}
+        src="/images/image-14.png"
         alt="Coffee Griham storefront glowing at night with warm lantern lighting"
-        className="absolute inset-0 -z-20 h-full w-full object-cover"
-      />
-      <div
-        aria-hidden
-        className="absolute inset-0 -z-10 bg-[linear-gradient(to_bottom,rgba(18,12,8,0.72),rgba(18,12,8,0.5)_45%,rgba(18,12,8,0.94))]"
-      />
-      <div
-        aria-hidden
-        className="absolute -top-40 left-1/2 -z-10 h-[560px] w-[900px] -translate-x-1/2 rounded-full bg-ember/20 blur-[160px]"
-      />
+        className="absolute inset-0 -z-20 h-full w-full object-cover brightness-[0.9] contrast-[1.05] saturate-[1.1]"
+    />
+
+    <div
+       aria-hidden
+       className="absolute inset-0 -z-10 bg-[linear-gradient(to_bottom,rgba(18,12,8,0.45),rgba(18,12,8,0.25)_45%,rgba(18,12,8,0.75))]"
+    />
 
       <div className="mx-auto flex w-full max-w-6xl flex-col items-center px-6 text-center">
         <motion.div
@@ -44,7 +41,7 @@ export function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.1, delay: 0.25, ease: [0.16, 1, 0.3, 1] }}
           className="mt-10 text-balance font-display text-[3rem] font-normal leading-[1] text-white sm:text-7xl md:text-[5.5rem] lg:text-[6.75rem]"
-        >
+         >
           A peaceful corner <br className="hidden sm:block" />
           in the heart of <span className="italic text-ember">Bhilai.</span>
         </motion.h1>
